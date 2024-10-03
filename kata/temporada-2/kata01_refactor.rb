@@ -13,10 +13,16 @@ elsif words.include?("#")
   puts "words with alphabetical chars are #{words_with_alphabetical_chars}"
 
   # create an array with the words that contain #"
-  words_with_pound_chars = words_with_alphabetical_chars.select { |word| word.include?("#") }
-
-  #create an array with the words that contain #"
-  words_with_pound_prefix = words_with_alphabetical_chars.map { |word| word.chars[1] == word.chars[0] ? [word.gsub("#", "")] : [] }.compact
+  words_with_pound_prefix = []
+  words_with_alphabetical_chars.each do |word|
+    if word.start_with?("#") && word.size == 1
+      words_with_pound_prefix << []
+    elsif word.include?("#")
+      words_with_pound_prefix.push([word.gsub("#", "")])
+    else
+      words_with_pound_prefix << []
+    end
+  end
   sleep 1
   puts "#the words that contain # as prefix are the following #{words_with_pound_prefix}"
 else
