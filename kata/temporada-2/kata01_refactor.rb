@@ -9,8 +9,11 @@ elsif words.include?("#")
   words = words.split(" ")
 
   #create an array with the words that contain alphabetical characters
-  words_with_alphabetical_chars = words.select { |word| word.match?(/\p{Alpha}/) }
+  words_with_alphabetical_chars = words.select { |word| word.match?(/^#+[a-zA-Z]/) || word == "#" }
   puts "words with alphabetical chars are #{words_with_alphabetical_chars}"
+
+  # create an array with the words that contain #"
+  words_with_pound_chars = words_with_alphabetical_chars.select { |word| word.include?("#") }
 
   #create an array with the words that contain #"
   words_with_pound_prefix = words_with_alphabetical_chars.map { |word| word.chars[1] == word.chars[0] ? [word.gsub("#", "")] : [] }.compact
