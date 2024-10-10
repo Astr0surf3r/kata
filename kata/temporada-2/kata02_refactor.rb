@@ -22,16 +22,18 @@ def mapping_roman_numbers(roman)
     next if index == roman.chars.size - 1
     if roman_numbers_values[char] < roman_numbers_values[roman.chars[index + 1]] && roman_numbers_values[char] < (roman_numbers_values[roman.chars[index + 1]]/10)
       return "Invalid roman number"
-    elsif ["I", "X", "C", "M"].include?(char) && roman.chars.count(char) > 3
+    elsif ["I", "X", "C", "M"].include?(char) && roman.chars.count(char) > 3 # you can only have three I, X, C, M in the same number
       return "Invalid roman number"
-    elsif ["V", "L", "D"].include?(char) && roman.chars.count(char) > 1
+    elsif ["V", "L", "D"].include?(char) && roman.chars.count(char) > 1 # you can only have one V, L, D in the same number
       return "Invalid roman number"
-    elsif roman_numbers_values[char] < roman_numbers_values[roman.chars[index + 1]] && ["I", "X", "C"].include?(char)
+    elsif roman_numbers_values[char] < roman_numbers_values[roman.chars[index + 1]] && ["V", "L", "D", "M" ].include?(char) # you can only substract I, X, C
+      return "Invalid roman number"
+    elsif roman_numbers_values[char] < roman_numbers_values[roman.chars[index + 1]]
       total_substract += roman_numbers_values[char] 
     end
   end
-
   total = total_of_mapping_chars - total_substract * 2
+
 end
 
 puts "Enter a roman number: "
