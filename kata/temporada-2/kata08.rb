@@ -98,3 +98,12 @@ puts "Human years for cat and dog: #{human_years_array}"
 # fraction = (32 - 29).to_f / (34 - 29).to_f
 # human_years = 3 + 0.6 * (4 - 3)
 # human_years = 3.6
+
+# visualization of interpolation between 2 numbers
+# 10 _________________ 20
+# a = 10 
+# b = 20
+# the interpolation number 12 we can calculate through a fraction
+# 10 ___12____________ 20
+# fraction = (12 - 10) / (20 - 10) = 0.2 (20 % of the way between 10 and 20)
+# 10 + 0.2 * (20 - 10) = 12
