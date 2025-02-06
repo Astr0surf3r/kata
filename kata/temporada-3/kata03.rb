@@ -9,7 +9,7 @@ def retrieve_pair(list_gloves)
     final_array << "#{count / 2} #{color} pair" if count % 2 == 0
   end
 
-  return final_array.compact
+  return final_array
 end
 
 list_gloves_1 = ["red", "green", "red", "blue", "blue"]
@@ -17,3 +17,9 @@ list_gloves_2 = ["red", "red", "red", "red", "red", "red"]
 
 p retrieve_pair(list_gloves_1) # Expected output: ["1 red pair", "1 blue pair"]
 p retrieve_pair(list_gloves_2) # Expected output: ["3 red pair"]
+
+#a = ["red", "green", "red", "blue", "blue"]
+
+#b = ["red", "green", "blue"]
+
+#red = a.count("red")
